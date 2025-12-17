@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Just One Question</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #eaeaea;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #ffffff;
+            color: #203a43;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #f1f1f1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" id="content">
+    <h1>Hey You.</h1>
+    <p>
+        This isn’t anything dramatic.<br>
+        Just something honest.<br><br>
+        You make my days calmer, my laughs louder,  
+        and my life better — simply by being in it.
+    </p>
+    <button class="btn" onclick="nextStep()">Continue</button>
+</div>
+
+<script>
+    let step = 0;
+
+    function nextStep() {
+        const content = document.getElementById("content");
+        step++;
+
+        if (step === 1) {
+            content.innerHTML = `
+                <h1>One Thing I Know</h1>
+                <p>
+                    I don’t need perfect days.<br>
+                    I don’t need big promises.<br><br>
+                    I just need <b>you</b> —  
+                    in the ordinary moments,  
+                    in the chaos,  
+                    in the quiet.
+                </p>
+                <button class="btn" onclick="nextStep()">One last thing</button>
+            `;
+        }
+
+        else if (step === 2) {
+            content.innerHTML = `
+                <h1>So…</h1>
+                <p>
+                    Not forever pressure.<br>
+                    Not movie-style drama.<br><br>
+                    Just a simple question,  
+                    from a real heart.
+                </p>
+                <button class="btn" onclick="nextStep()">Ask it</button>
+            `;
+        }
+
+        else if (step === 3) {
+            content.innerHTML = `
+                <h1>Will you be mine?</h1>
+                <p>
+                    Not just today.<br>
+                    But in the small moments that matter.
+                </p>
+                <button class="btn" onclick="alert('He already said yes ❤️')">Yes</button>
+            `;
+        }
+    }
+</script>
+
+</body>
+</html>
